@@ -1,0 +1,406 @@
+[
+    {
+        "id": "ab54e9608c76c577",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c0168a6a05d4b7b4",
+        "type": "aedes broker",
+        "z": "ab54e9608c76c577",
+        "name": "local",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 220,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2e0b1f08cf69eaa",
+        "type": "mqtt out",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "topic": "brillo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e069b2ed5a80bbc1",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cc138f0df0edc954",
+        "type": "mqtt in",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "topic": "medicion",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "e069b2ed5a80bbc1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "988aec18321650b6"
+            ]
+        ]
+    },
+    {
+        "id": "9bd4eeda0a6e8a84",
+        "type": "ui_slider",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "label": "brillo led",
+        "tooltip": "",
+        "group": "2d64e260d2e997a9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1024",
+        "step": "10",
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "e2e0b1f08cf69eaa"
+            ]
+        ]
+    },
+    {
+        "id": "49226792a9f263d2",
+        "type": "ui_switch",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "label": "LED1",
+        "tooltip": "",
+        "group": "2d64e260d2e997a9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "36bf8403242b824d"
+            ]
+        ]
+    },
+    {
+        "id": "36bf8403242b824d",
+        "type": "mqtt out",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "topic": "led1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e069b2ed5a80bbc1",
+        "x": 500,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "39e879743e4fb5f3",
+        "type": "ui_switch",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "label": "LED2",
+        "tooltip": "",
+        "group": "2d64e260d2e997a9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "9d83fb15be6003ee"
+            ]
+        ]
+    },
+    {
+        "id": "9d83fb15be6003ee",
+        "type": "mqtt out",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "topic": "led2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e069b2ed5a80bbc1",
+        "x": 490,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9497c7d0015a4440",
+        "type": "ui_chart",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "group": "2d64e260d2e997a9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Distancia",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "300",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 700,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "817e4e4c07a96409",
+        "type": "ui_gauge",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "group": "2d64e260d2e997a9",
+        "order": 4,
+        "width": "2",
+        "height": "2",
+        "gtype": "wave",
+        "title": "gauge",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cd85a63f0bc9fc4a",
+        "type": "ui_colour_picker",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "label": "",
+        "group": "2d64e260d2e997a9",
+        "format": "rgb",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "d8911434fd786ce1"
+            ]
+        ]
+    },
+    {
+        "id": "d8911434fd786ce1",
+        "type": "debug",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "ddba1dfb91c3bbf8",
+        "type": "inject",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "jsonata",
+        "x": 110,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "988aec18321650b6",
+        "type": "change",
+        "z": "ab54e9608c76c577",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.valor",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "817e4e4c07a96409",
+                "9497c7d0015a4440"
+            ]
+        ]
+    },
+    {
+        "id": "e069b2ed5a80bbc1",
+        "type": "mqtt-broker",
+        "name": "Broker Local",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2d64e260d2e997a9",
+        "type": "ui_group",
+        "name": "Curso IOT",
+        "tab": "3fa98a477a5eaefb",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false
+    },
+    {
+        "id": "3fa98a477a5eaefb",
+        "type": "ui_tab",
+        "name": "IOT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
